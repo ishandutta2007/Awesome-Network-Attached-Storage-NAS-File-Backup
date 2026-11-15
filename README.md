@@ -93,7 +93,7 @@ Self-hosted, community-driven backup software, sync engines, and deduplicating t
 
 > *Ranked in descending order by GitHub community popularity (Stargazers count).*
 
-| Project | GitHub Stars 🌟 | Primary Stack 🛠️ | License 📜 | Deduplication & Security 🔐 | NAS Target Support 📁 |
+| Project | GitHub_Stars 🌟 | Primary Stack 🛠️ | License 📜 | Deduplication & Security 🔐 | NAS Target Support 📁 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **[Rclone](https://github.com/rclone/rclone)** | [![Stars](https://img.shields.io/github/stars/rclone/rclone?style=social&color=white)](https://github.com/rclone/rclone/stargazers) | Go | MIT | Hash verification, chunker, rclone crypt (AES-256) | S3, WebDAV, SFTP, SMB, NFS, 70+ Cloud providers |
 | **[Restic](https://github.com/restic/restic)** | [![Stars](https://img.shields.io/github/stars/restic/restic?style=social&color=white)](https://github.com/restic/restic/stargazers) | Go | BSD-2-Clause | Content-defined chunking (CDC), AES-256 encryption | Local NAS, SFTP, REST server, AWS S3, MinIO, B2 |
@@ -178,7 +178,7 @@ Contributions to this directory are encouraged! If you maintain or rely on an en
 1. Fork this repository 🍴
 2. Add your product or open-source tool to the appropriate section:
    - Provide software name, project repository URL, license, and brief overview.
-   - For open-source tools, include the GitHub stars social badge linked to its `/stargazers` page.
+   - For open-source tools, include the GitHub_Stars social badge linked to its `/stargazers` page.
    - For commercial/SaaS tools, supply verifiable starting tier pricing and explicit trial periods.
 3. Verify that the table formatting is clean and properly aligned.
 4. Submit your pull request with a descriptive title! 🚀
