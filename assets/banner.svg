@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" style="background:#0b0f19;border-radius:12px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Glowing Node Gradients -->
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="slightGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Animations for dynamic background & data stream elements */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(1.04); }
+    }
+    @keyframes dataStream {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-12px) translateX(8px); }
+    }
+    @keyframes scanLine {
+      0% { transform: translateY(0px); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(220px); opacity: 0; }
+    }
+    @keyframes packetFlow {
+      0% { offset-distance: 0%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+
+    .bg-grid { stroke: #1e293b; stroke-width: 0.75; opacity: 0.35; }
+    .stream-line { stroke-dasharray: 8 12; animation: dataStream 3s linear infinite; }
+    .stream-line-rev { stroke-dasharray: 6 10; animation: dataStream 2.5s linear infinite reverse; }
+    .floating-orb { animation: floatOrb 6s ease-in-out infinite; }
+    .pulsing-circuit { transform-origin: center; animation: pulseGlow 4s ease-in-out infinite; }
+  </style>
+
+  <!-- Deep Base Background -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+
+  <!-- Isometric Network Grid Lines (Background only) -->
+  <g class="bg-grid">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="150" y1="0" x2="150" y2="360" />
+    <line x1="300" y1="0" x2="300" y2="360" />
+    <line x1="450" y1="0" x2="450" y2="360" />
+    <line x1="600" y1="0" x2="600" y2="360" />
+    <line x1="750" y1="0" x2="750" y2="360" />
+    <line x1="900" y1="0" x2="900" y2="360" />
+    <line x1="1050" y1="0" x2="1050" y2="360" />
+  </g>
+
+  <!-- Dynamic Animated Light / Energy Orbs (Subtle Background) -->
+  <g class="floating-orb" opacity="0.6">
+    <circle cx="180" cy="90" r="130" fill="#38bdf8" filter="url(#glow)" opacity="0.12" />
+    <circle cx="1020" cy="270" r="160" fill="#818cf8" filter="url(#glow)" opacity="0.15" />
+    <circle cx="920" cy="90" r="90" fill="#c084fc" filter="url(#glow)" opacity="0.1" />
+  </g>
+
+  <!-- Dynamic Network Connection Pathways with Stream Effect (Background) -->
+  <g fill="none" opacity="0.55">
+    <path class="stream-line" d="M 80,180 L 260,180 L 320,290 L 880,290 L 960,180 L 1120,180" stroke="#38bdf8" stroke-width="2" />
+    <path class="stream-line-rev" d="M 120,70 L 350,70 L 420,150 L 780,150 L 850,70 L 1080,70" stroke="#818cf8" stroke-width="1.8" />
+    <path class="stream-line" d="M 220,320 C 400,320 500,270 650,270 C 800,270 950,330 1100,330" stroke="#c084fc" stroke-width="1.5" />
+  </g>
+
+  <!-- Ambient Node Hardware Icons & Rings (Flanking Sides - No Overlap with Text) -->
+  <g opacity="0.8">
+    <!-- Left Hardware / NAS Tower Graphic -->
+    <g transform="translate(60, 95)">
+      <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" filter="url(#slightGlow)" />
+      <!-- Drive Bays -->
+      <rect x="12" y="18" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <circle cx="82" cy="28" r="3" fill="#22c55e" filter="url(#slightGlow)" />
+      
+      <rect x="12" y="46" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <circle cx="82" cy="56" r="3" fill="#38bdf8" filter="url(#slightGlow)" />
+
+      <rect x="12" y="74" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <circle cx="82" cy="84" r="3" fill="#22c55e" filter="url(#slightGlow)" />
+
+      <rect x="12" y="102" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <circle cx="82" cy="112" r="3" fill="#818cf8" filter="url(#slightGlow)" />
+
+      <!-- Activity Indicator LEDs -->
+      <circle cx="24" cy="142" r="3" fill="#38bdf8" />
+      <circle cx="36" cy="142" r="3" fill="#22c55e" />
+      <circle cx="48" cy="142" r="3" fill="#eab308" />
+      <line x1="62" y1="142" x2="88" y2="142" stroke="#475569" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- Right Cloud & Data Shield Nodes -->
+    <g transform="translate(1035, 95)">
+      <!-- Cloud Storage Node -->
+      <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#818cf8" stroke-width="1.5" filter="url(#slightGlow)" />
+      
+      <!-- Snapshot Layers Icon -->
+      <path d="M 24,40 L 52,24 L 80,40 L 52,56 Z" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <path d="M 24,62 L 52,78 L 80,62" fill="none" stroke="#818cf8" stroke-width="2" />
+      <path d="M 24,84 L 52,100 L 80,84" fill="none" stroke="#c084fc" stroke-width="2" />
+
+      <!-- Immutable Lock Symbol -->
+      <circle cx="52" cy="132" r="14" fill="#0f172a" stroke="#22c55e" stroke-width="1.5" />
+      <path d="M 47,130 L 47,126 C 47,123.5 49,122 52,122 C 55,122 57,123.5 57,126 L 57,130 Z" fill="none" stroke="#22c55e" stroke-width="1.5" />
+      <rect x="46" y="130" width="12" height="9" rx="1.5" fill="#22c55e" />
+    </g>
+  </g>
+
+  <!-- FOREGROUND: Clean, Sharp, Prominent Typography & Badges (Guaranteed High Contrast & Readability) -->
+  <g text-anchor="middle">
+    <!-- Top Category Pill / Micro-Badge -->
+    <g transform="translate(600, 52)">
+      <rect x="-165" y="-14" width="330" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.95" />
+      <circle cx="-140" cy="0" r="4" fill="#38bdf8" filter="url(#slightGlow)" />
+      <text x="5" y="5" font-size="12" font-weight="700" fill="#93c5fd" letter-spacing="1.5">ENTERPRISE STORAGE &amp; RESILIENCE</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="132" font-size="40" font-weight="900" fill="#ffffff" letter-spacing="-0.5">
+      Awesome Network Attached Storage
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="600" y="180" font-size="28" font-weight="700" fill="url(#primaryGlow)" letter-spacing="0.5">
+      NAS &amp; File Backup Directory
+    </text>
+
+    <!-- Clear Scope / Description -->
+    <text x="600" y="222" font-size="14.5" font-weight="400" fill="#cbd5e1" letter-spacing="0.2">
+      Curated Commercial SaaS Platforms, Scale-Out Appliances &amp; Open-Source Self-Hosted Backup Engines
+    </text>
+
+    <!-- Feature Feature Tag Badges Bar -->
+    <g transform="translate(600, 276)">
+      <!-- Badge 1: Deduplication -->
+      <g transform="translate(-270, 0)">
+        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#38bdf8">⚡ Deduplication</text>
+      </g>
+      <!-- Badge 2: Ransomware / WORM -->
+      <g transform="translate(-135, 0)">
+        <rect x="-60" y="-13" width="120" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#22c55e">🛡️ WORM / Immutability</text>
+      </g>
+      <!-- Badge 3: Multi-Protocol -->
+      <g transform="translate(0, 0)">
+        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#facc15">📂 NFS · SMB · S3</text>
+      </g>
+      <!-- Badge 4: Snapshots -->
+      <g transform="translate(135, 0)">
+        <rect x="-60" y="-13" width="120" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#818cf8">📸 Zero-Copy Snaps</text>
+      </g>
+      <!-- Badge 5: Open Source & SaaS -->
+      <g transform="translate(270, 0)">
+        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#c084fc">🌐 Hybrid &amp; Open Source</text>
+      </g>
+    </g>
+  </g>
+</svg>
