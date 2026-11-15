@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" style="background:#0b0f19;border-radius:12px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <!-- Background Gradients -->
+    <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#070a13" />
       <stop offset="50%" stop-color="#0f172a" />
       <stop offset="100%" stop-color="#020617" />
     </linearGradient>
 
-    <!-- Glowing Node Gradients -->
+    <!-- Accent / Title Gradient -->
     <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38bdf8" />
       <stop offset="50%" stop-color="#818cf8" />
@@ -15,60 +15,97 @@
     </linearGradient>
 
     <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
     </linearGradient>
 
-    <!-- Glow Filter -->
+    <!-- Subtle Glow Filter -->
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feGaussianBlur stdDeviation="5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
 
-    <filter id="slightGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
   <style>
-    /* CSS Animations for dynamic background & data stream elements */
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.75; transform: scale(1.04); }
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
     }
-    @keyframes dataStream {
-      0% { stroke-dashoffset: 100; }
-      100% { stroke-dashoffset: 0; }
+    .subtitle-gradient {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      fill: url(#primaryGlow);
+      letter-spacing: 0.5px;
     }
-    @keyframes floatOrb {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-12px) translateX(8px); }
+    .desc-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      fill: #cbd5e1;
+      letter-spacing: 0.2px;
     }
-    @keyframes scanLine {
-      0% { transform: translateY(0px); opacity: 0; }
-      50% { opacity: 0.8; }
-      100% { transform: translateY(220px); opacity: 0; }
-    }
-    @keyframes packetFlow {
-      0% { offset-distance: 0%; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { offset-distance: 100%; opacity: 0; }
+    .badge-pill-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      fill: #93c5fd;
+      letter-spacing: 1.5px;
     }
 
-    .bg-grid { stroke: #1e293b; stroke-width: 0.75; opacity: 0.35; }
-    .stream-line { stroke-dasharray: 8 12; animation: dataStream 3s linear infinite; }
-    .stream-line-rev { stroke-dasharray: 6 10; animation: dataStream 2.5s linear infinite reverse; }
-    .floating-orb { animation: floatOrb 6s ease-in-out infinite; }
-    .pulsing-circuit { transform-origin: center; animation: pulseGlow 4s ease-in-out infinite; }
+    /* Ambient Pulsing & Flow Animations */
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+    @keyframes dashMove {
+      from { stroke-dashoffset: 120; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+      50% { transform: translateY(-12px) translateX(8px); opacity: 0.8; }
+    }
+
+    .node-p1 { animation: pulseNode 3s infinite ease-in-out; transform-origin: 1040px 100px; }
+    .node-p2 { animation: pulseNode 3.5s infinite ease-in-out 1s; transform-origin: 940px 220px; }
+    .node-p3 { animation: pulseNode 4s infinite ease-in-out 2s; transform-origin: 1120px 250px; }
+    .node-p4 { animation: pulseNode 3.2s infinite ease-in-out 0.5s; transform-origin: 120px 80px; }
+    .node-p5 { animation: pulseNode 3.8s infinite ease-in-out 1.5s; transform-origin: 80px 260px; }
+
+    .net-line {
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+      stroke-dasharray: 6, 6;
+      animation: dashMove 12s linear infinite;
+      opacity: 0.45;
+    }
+    .net-line-purple {
+      stroke: #818cf8;
+      stroke-width: 1.5;
+      stroke-dasharray: 6, 6;
+      animation: dashMove 14s linear infinite reverse;
+      opacity: 0.45;
+    }
+    .floating-dot {
+      animation: floatParticle 6s ease-in-out infinite;
+    }
   </style>
 
   <!-- Deep Base Background -->
-  <rect width="1200" height="360" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+  <rect width="1196" height="356" x="2" y="2" rx="15" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.6" />
 
   <!-- Isometric Network Grid Lines (Background only) -->
-  <g class="bg-grid">
+  <g stroke="#1e293b" stroke-width="0.75" opacity="0.4">
     <line x1="0" y1="60" x2="1200" y2="60" />
     <line x1="0" y1="120" x2="1200" y2="120" />
     <line x1="0" y1="180" x2="1200" y2="180" />
@@ -83,113 +120,118 @@
     <line x1="1050" y1="0" x2="1050" y2="360" />
   </g>
 
-  <!-- Dynamic Animated Light / Energy Orbs (Subtle Background) -->
-  <g class="floating-orb" opacity="0.6">
-    <circle cx="180" cy="90" r="130" fill="#38bdf8" filter="url(#glow)" opacity="0.12" />
-    <circle cx="1020" cy="270" r="160" fill="#818cf8" filter="url(#glow)" opacity="0.15" />
-    <circle cx="920" cy="90" r="90" fill="#c084fc" filter="url(#glow)" opacity="0.1" />
+  <!-- Ambient Animated Network Mesh Lines (Behind text) -->
+  <g opacity="0.65">
+    <path class="net-line" d="M80 260 L120 80 L220 160 L100 240 Z" fill="none" />
+    <path class="net-line-purple" d="M940 220 L1060 100 L1120 250 L1040 180 Z" fill="none" />
+    <path class="net-line" d="M940 220 L1040 180 L880 120" fill="none" />
+    <path class="net-line-purple" d="M120 80 L280 60" fill="none" />
+
+    <!-- Network Nodes (Floating and Pulsing) -->
+    <circle cx="120" cy="80" r="5" fill="#38bdf8" class="node-p4" filter="url(#subtleGlow)" />
+    <circle cx="80" cy="260" r="4" fill="#818cf8" class="node-p5" filter="url(#subtleGlow)" />
+    <circle cx="220" cy="160" r="3" fill="#38bdf8" opacity="0.6" />
+    <circle cx="280" cy="60" r="4" fill="#0ea5e9" opacity="0.5" />
+
+    <circle cx="1060" cy="100" r="6" fill="#38bdf8" class="node-p1" filter="url(#glow)" />
+    <circle cx="940" cy="220" r="5" fill="#818cf8" class="node-p2" filter="url(#glow)" />
+    <circle cx="1120" cy="250" r="5" fill="#c084fc" class="node-p3" filter="url(#glow)" />
+    <circle cx="1040" cy="180" r="8" fill="#38bdf8" filter="url(#glow)" />
+    <circle cx="880" cy="120" r="4" fill="#a78bfa" opacity="0.7" />
+
+    <!-- Floating Particles -->
+    <circle cx="480" cy="50" r="2" fill="#38bdf8" class="floating-dot" />
+    <circle cx="740" cy="55" r="2.5" fill="#818cf8" class="floating-dot" style="animation-delay: 2s;" />
+    <circle cx="600" cy="320" r="2" fill="#38bdf8" class="floating-dot" style="animation-delay: 3s;" />
+    <circle cx="360" cy="310" r="1.5" fill="#a78bfa" class="floating-dot" style="animation-delay: 1.5s;" />
   </g>
 
-  <!-- Dynamic Network Connection Pathways with Stream Effect (Background) -->
-  <g fill="none" opacity="0.55">
-    <path class="stream-line" d="M 80,180 L 260,180 L 320,290 L 880,290 L 960,180 L 1120,180" stroke="#38bdf8" stroke-width="2" />
-    <path class="stream-line-rev" d="M 120,70 L 350,70 L 420,150 L 780,150 L 850,70 L 1080,70" stroke="#818cf8" stroke-width="1.8" />
-    <path class="stream-line" d="M 220,320 C 400,320 500,270 650,270 C 800,270 950,330 1100,330" stroke="#c084fc" stroke-width="1.5" />
+  <!-- Left Flank: Hardware / NAS Rack Graphic (No text overlap) -->
+  <g transform="translate(60, 95)" opacity="0.85">
+    <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" filter="url(#subtleGlow)" />
+    <!-- Drive Bays -->
+    <rect x="12" y="18" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="82" cy="28" r="3" fill="#22c55e" filter="url(#subtleGlow)" />
+    
+    <rect x="12" y="46" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="82" cy="56" r="3" fill="#38bdf8" filter="url(#subtleGlow)" />
+
+    <rect x="12" y="74" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="82" cy="84" r="3" fill="#22c55e" filter="url(#subtleGlow)" />
+
+    <rect x="12" y="102" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="82" cy="112" r="3" fill="#818cf8" filter="url(#subtleGlow)" />
+
+    <!-- Activity LEDs -->
+    <circle cx="24" cy="142" r="3" fill="#38bdf8" />
+    <circle cx="36" cy="142" r="3" fill="#22c55e" />
+    <circle cx="48" cy="142" r="3" fill="#eab308" />
+    <line x1="62" y1="142" x2="88" y2="142" stroke="#475569" stroke-width="2" stroke-linecap="round" />
   </g>
 
-  <!-- Ambient Node Hardware Icons & Rings (Flanking Sides - No Overlap with Text) -->
-  <g opacity="0.8">
-    <!-- Left Hardware / NAS Tower Graphic -->
-    <g transform="translate(60, 95)">
-      <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" filter="url(#slightGlow)" />
-      <!-- Drive Bays -->
-      <rect x="12" y="18" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
-      <circle cx="82" cy="28" r="3" fill="#22c55e" filter="url(#slightGlow)" />
-      
-      <rect x="12" y="46" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
-      <circle cx="82" cy="56" r="3" fill="#38bdf8" filter="url(#slightGlow)" />
+  <!-- Right Flank: Cloud & Data Shield Graphic (No text overlap) -->
+  <g transform="translate(1035, 95)" opacity="0.85">
+    <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#818cf8" stroke-width="1.5" filter="url(#subtleGlow)" />
+    
+    <!-- Snapshot Layers Icon -->
+    <path d="M 24,40 L 52,24 L 80,40 L 52,56 Z" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path d="M 24,62 L 52,78 L 80,62" fill="none" stroke="#818cf8" stroke-width="2" />
+    <path d="M 24,84 L 52,100 L 80,84" fill="none" stroke="#c084fc" stroke-width="2" />
 
-      <rect x="12" y="74" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
-      <circle cx="82" cy="84" r="3" fill="#22c55e" filter="url(#slightGlow)" />
-
-      <rect x="12" y="102" width="81" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1" />
-      <circle cx="82" cy="112" r="3" fill="#818cf8" filter="url(#slightGlow)" />
-
-      <!-- Activity Indicator LEDs -->
-      <circle cx="24" cy="142" r="3" fill="#38bdf8" />
-      <circle cx="36" cy="142" r="3" fill="#22c55e" />
-      <circle cx="48" cy="142" r="3" fill="#eab308" />
-      <line x1="62" y1="142" x2="88" y2="142" stroke="#475569" stroke-width="2" stroke-linecap="round" />
-    </g>
-
-    <!-- Right Cloud & Data Shield Nodes -->
-    <g transform="translate(1035, 95)">
-      <!-- Cloud Storage Node -->
-      <rect x="0" y="0" width="105" height="170" rx="8" fill="url(#cardGrad)" stroke="#818cf8" stroke-width="1.5" filter="url(#slightGlow)" />
-      
-      <!-- Snapshot Layers Icon -->
-      <path d="M 24,40 L 52,24 L 80,40 L 52,56 Z" fill="none" stroke="#38bdf8" stroke-width="2" />
-      <path d="M 24,62 L 52,78 L 80,62" fill="none" stroke="#818cf8" stroke-width="2" />
-      <path d="M 24,84 L 52,100 L 80,84" fill="none" stroke="#c084fc" stroke-width="2" />
-
-      <!-- Immutable Lock Symbol -->
-      <circle cx="52" cy="132" r="14" fill="#0f172a" stroke="#22c55e" stroke-width="1.5" />
-      <path d="M 47,130 L 47,126 C 47,123.5 49,122 52,122 C 55,122 57,123.5 57,126 L 57,130 Z" fill="none" stroke="#22c55e" stroke-width="1.5" />
-      <rect x="46" y="130" width="12" height="9" rx="1.5" fill="#22c55e" />
-    </g>
+    <!-- Immutable Lock Symbol -->
+    <circle cx="52" cy="132" r="14" fill="#0f172a" stroke="#22c55e" stroke-width="1.5" />
+    <path d="M 47,130 L 47,126 C 47,123.5 49,122 52,122 C 55,122 57,123.5 57,126 L 57,130 Z" fill="none" stroke="#22c55e" stroke-width="1.5" />
+    <rect x="46" y="130" width="12" height="9" rx="1.5" fill="#22c55e" />
   </g>
 
-  <!-- FOREGROUND: Clean, Sharp, Prominent Typography & Badges (Guaranteed High Contrast & Readability) -->
-  <g text-anchor="middle">
-    <!-- Top Category Pill / Micro-Badge -->
-    <g transform="translate(600, 52)">
-      <rect x="-165" y="-14" width="330" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.95" />
-      <circle cx="-140" cy="0" r="4" fill="#38bdf8" filter="url(#slightGlow)" />
-      <text x="5" y="5" font-size="12" font-weight="700" fill="#93c5fd" letter-spacing="1.5">ENTERPRISE STORAGE &amp; RESILIENCE</text>
+  <!-- FOREGROUND: Centered Clean Typography & Badges (Completely unobstructed) -->
+  <g transform="translate(600, 0)" text-anchor="middle">
+    <!-- Top Category Pill -->
+    <g transform="translate(0, 48)">
+      <rect x="-170" y="0" width="340" height="30" rx="15" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.95" />
+      <circle cx="-145" cy="15" r="4" fill="#38bdf8" class="node-p1" />
+      <text x="8" y="20" class="badge-pill-text" text-anchor="middle">ENTERPRISE STORAGE &amp; RESILIENCE</text>
     </g>
 
     <!-- Main Title -->
-    <text x="600" y="132" font-size="40" font-weight="900" fill="#ffffff" letter-spacing="-0.5">
-      Awesome Network Attached Storage
-    </text>
+    <text x="0" y="132" class="title-text" filter="url(#subtleGlow)">Awesome Network Attached Storage</text>
 
     <!-- Subtitle / Tagline -->
-    <text x="600" y="180" font-size="28" font-weight="700" fill="url(#primaryGlow)" letter-spacing="0.5">
-      NAS &amp; File Backup Directory
-    </text>
+    <text x="0" y="178" class="subtitle-gradient">NAS &amp; File Backup Directory</text>
 
     <!-- Clear Scope / Description -->
-    <text x="600" y="222" font-size="14.5" font-weight="400" fill="#cbd5e1" letter-spacing="0.2">
-      Curated Commercial SaaS Platforms, Scale-Out Appliances &amp; Open-Source Self-Hosted Backup Engines
-    </text>
+    <text x="0" y="218" class="desc-text">Curated Commercial SaaS Platforms, Scale-Out Appliances &amp; Open-Source Backup Engines</text>
 
-    <!-- Feature Feature Tag Badges Bar -->
-    <g transform="translate(600, 276)">
+    <!-- Capability Feature Badges Bar -->
+    <g transform="translate(0, 260)">
       <!-- Badge 1: Deduplication -->
       <g transform="translate(-270, 0)">
-        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#38bdf8">⚡ Deduplication</text>
+        <rect x="-65" y="0" width="130" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#38bdf8" text-anchor="middle">⚡ Deduplication</text>
       </g>
       <!-- Badge 2: Ransomware / WORM -->
       <g transform="translate(-135, 0)">
-        <rect x="-60" y="-13" width="120" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#22c55e">🛡️ WORM / Immutability</text>
+        <rect x="-60" y="0" width="120" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#22c55e" text-anchor="middle">🛡️ Immutability</text>
       </g>
       <!-- Badge 3: Multi-Protocol -->
       <g transform="translate(0, 0)">
-        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#facc15">📂 NFS · SMB · S3</text>
+        <rect x="-65" y="0" width="130" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#facc15" text-anchor="middle">📂 NFS · SMB · S3</text>
       </g>
       <!-- Badge 4: Snapshots -->
       <g transform="translate(135, 0)">
-        <rect x="-60" y="-13" width="120" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#818cf8">📸 Zero-Copy Snaps</text>
+        <rect x="-60" y="0" width="120" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#818cf8" text-anchor="middle">📸 Zero-Copy Snaps</text>
       </g>
       <!-- Badge 5: Open Source & SaaS -->
       <g transform="translate(270, 0)">
-        <rect x="-65" y="-13" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
-        <text x="0" y="4" font-size="11.5" font-weight="600" fill="#c084fc">🌐 Hybrid &amp; Open Source</text>
+        <rect x="-65" y="0" width="130" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="0" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#c084fc" text-anchor="middle">🌐 Hybrid &amp; Open Source</text>
       </g>
     </g>
+
+    <!-- Bottom Accent Line -->
+    <rect x="-240" y="315" width="480" height="3" rx="1.5" fill="url(#primaryGlow)" />
   </g>
 </svg>
