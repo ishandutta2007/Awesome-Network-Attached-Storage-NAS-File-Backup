@@ -4,11 +4,13 @@
 
 <img src="./assets/banner.svg" alt="Awesome Network Attached Storage NAS and File Backup Banner" width="100%" />
 
+<a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?syyle=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-blue.svg)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ishandutta2007/Awesome-Network-Attached-Storage-NAS-File-Backup)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ishandutta2007/Awesome-Network-Attached-Storage-NAS-File-Backup/pulls)
 [![Storage Protocols](https://img.shields.io/badge/Protocols-NFS%20%7C%20SMB%20%7C%20S3%20%7C%20iSCSI-orange.svg)](#)
+<a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 
 <p align="center">
   <b>A curated catalog of enterprise Network Attached Storage (NAS), distributed file backup systems, cloud resilience suites, and open-source file protection engines.</b><br>
@@ -31,6 +33,8 @@
   - [🔍 Deep-Dive: Open-Source Tools Overview](#-deep-dive-open-source-tools-overview)
 - [⚖️ Architecture Matrix: Protocol & Feature Support](#-architecture-matrix-protocol--feature-support)
 - [🤝 Contributing](#-contributing)
+- [💖 Support](#-support)
+- [⭐ Star History](#-star-history)
 - [📄 License](#-license)
 
 ---
@@ -178,6 +182,22 @@ Contributions to this directory are encouraged! If you maintain or rely on an en
    - For commercial/SaaS tools, supply verifiable starting tier pricing and explicit trial periods.
 3. Verify that the table formatting is clean and properly aligned.
 4. Submit your pull request with a descriptive title! 🚀
+
+---
+
+## 💖 Support
+
+Thank you for exploring and supporting this curated resource! 🌟 If this directory has helped you discover, evaluate, or deploy storage and backup tools for your infrastructure, please consider supporting the project:
+
+- ⭐ **Star this repository** to improve visibility and help other DevOps/SysAdmin practitioners find it!
+- 🍴 **Fork the repo** to contribute new tools, updates, or benchmark insights.
+- 📢 **Share it** with fellow storage engineers, homelab hobbyists, and cloud architects on Discord, Reddit, or X.
+- ☕ **Buy me a coffee / Sponsor**: If you appreciate this work and want to support ongoing maintenance and new curated resources, check out my [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007). Your support is deeply appreciated!
+
+---
+
+##  Star History
+[![Star History Chart](https://www.star-history.com/svg?repos=ishandutta2007/Awesome-Network-Attached-Storage-NAS-File-Backup&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/Awesome-Network-Attached-Storage-NAS-File-Backup&type=date&legend=top-left)
 
 ---
 
